@@ -1,0 +1,28 @@
+﻿@model IEnumerable<Microsoft.AspNetCore.Identity.IdentityUser>
+@{
+    ViewData["Title"] = "Admin";
+}
+
+<h1>Admin</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>UID</th>
+            <th>Felhasználónév</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.UserName</td>
+                <td>
+                    @Html.ActionLink("Upgrade to Admin","MakeAdmin", new { uid = item.Id }) |
+                    @Html.ActionLink("Delete", "DeleteUser", new { uid = item.Id })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

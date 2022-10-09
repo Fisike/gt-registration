@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewData["Title"] = "Pontozas";
+}
+
+<h1>Pontozás</h1>
+
+@{
+    List<Szervezo> all = (List<Szervezo>)ViewData["allSzervezo"];
+}
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="AddPont" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label>Szervező</label>
+                <select id="szervezo" name="szervezo">
+                    @foreach (var item in all)
+                    {
+                        <option value="@item.UID">@(item.Vezeteknev + " " +item.Keresztnev)</option>
+                    }
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Tapasztalat (1-10)</label>
+                <input type="text" name="tapasztalat" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label>Szervezőképesség (1-10)</label>
+                <input type="text" name="szervezokepesseg" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label>Személyiség (1-10)</label>
+                <input type="text" name="szemelyiseg" class="form-control" />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="OK" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,72 @@
+﻿@model GT_regisztracio.Models.Szervezo
+
+@{
+    ViewData["Title"] = "Jelentkezés";
+}
+
+<h1>Jelentkezés</h1>
+
+<h4>Szervező</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Jelentkezes">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Vezeteknev" class="control-label"></label>
+                <input asp-for="Vezeteknev" class="form-control" />
+                <span asp-validation-for="Vezeteknev" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Keresztnev" class="control-label"></label>
+                <input asp-for="Keresztnev" class="form-control" />
+                <span asp-validation-for="Keresztnev" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Neptun" class="control-label"></label>
+                <input asp-for="Neptun" class="form-control" />
+                <span asp-validation-for="Neptun" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Telefon" class="control-label"></label>
+                <input asp-for="Telefon" class="form-control" />
+                <span asp-validation-for="Telefon" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Pozicio" class="control-label"></label>
+                <select asp-for="Pozicio" class="form-control">
+                    <option value="csapatkapitany">Csapatkapitány</option>
+                    <option value="mokaroka">Móka Róka</option>
+                    <option value="programos">Programos</option>
+                </select>
+                <span asp-validation-for="Pozicio" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Bemutatkozas" class="control-label"></label>
+                <textarea asp-for="Bemutatkozas" class="form-control" rows="10" ></textarea>
+                <span asp-validation-for="Bemutatkozas" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Megjegyzes" class="control-label"></label>
+                <textarea asp-for="Megjegyzes" class="form-control" rows="5"></textarea>
+                <span asp-validation-for="Megjegyzes" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
